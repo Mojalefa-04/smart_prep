@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPreps Tutors — EMS GIANT</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f7fb;
+            color: #1a1a2e;
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* Header */
+        header {
+            background: #0d47a1;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        header h1 span { color: #64b5f6; }
+        header h2 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        /* Hero */
+        .hero {
+            background: white;
+            padding: 50px 0;
+            text-align: center;
+            border-bottom: 1px solid #e0e6ed;
+        }
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #0d47a1;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+        .btn {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 14px 36px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #b71c1c; }
+
+        /* Section styling */
+        section { padding: 40px 0; }
+        .section-title {
+            font-size: 1.5rem;
+            color: #0d47a1;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #64b5f6;
+            display: inline-block;
+        }
+
+        /* Modules */
+        .modules { background: white; }
+        .module-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .module-card h3 {
+            color: #0d47a1;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .module-card p, .module-card ul {
+            color: #444;
+            font-size: 0.95rem;
+        }
+        .module-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .module-card ul li {
+            padding: 4px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .module-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #0d47a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin: 3px 3px 3px 0;
+        }
+
+        /* Rates */
+        .rates { background: #f4f7fb; }
+        .rate-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .rate-table th, .rate-table td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .rate-table th {
+            background: #0d47a1;
+            color: white;
+            font-weight: 600;
+        }
+        .rate-table tr:last-child td { border-bottom: none; }
+        .rate-table td { color: #333; }
+        .price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0d47a1;
+        }
+
+        /* Info box */
+        .info-box {
+            background: #fff3e0;
+            border-left: 4px solid #f57c00;
+            padding: 18px 22px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 25px;
+        }
+        .info-box p { color: #5d4037; font-size: 0.95rem; }
+        .info-box strong { color: #e65100; }
+
+        /* Contact */
+        .contact { background: white; }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 600px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+        .contact-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 22px;
+            text-align: center;
+        }
+        .contact-item .icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .contact-item h4 {
+            color: #0d47a1;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+        .contact-item a, .contact-item span {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+        .contact-item a:hover { color: #0d47a1; text-decoration: underline; }
+
+        /* Footer */
+        footer {
+            background: #0d47a1;
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.9rem;
+        }
+        footer p { opacity: 0.85; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Smart<span>Preps</span> Tutors</h1>
+            <h2>EMS GIANT — Trusted by 500+ Students</h2>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Are you struggling with your modules?</h2>
+            <p>Don't worry — we got you covered. We are here to help you ace your module & exams in no time with expert face-to-face tutoring.</p>
+            <a href="#contact" class="btn">Register Now</a>
+        </div>
+    </section>
+
+    <section class="modules" id="modules">
+        <div class="container">
+            <h2 class="section-title">We Offer a Variety of Choices</h2>
+
+            <div class="module-card">
+                <h3>📊 Statistics</h3>
+                <p style="margin-bottom:10px;">Comprehensive tutoring for all Statistics modules:</p>
+                <div style="margin-bottom:10px;">
+                    <span class="tag">STK 133</span>
+                    <span class="tag">STK 143</span>
+                    <span class="tag">STK 113</span>
+                    <span class="tag">STK 110</span>
+                    <span class="tag">STK 120</span>
+                    <span class="tag">STK 123</span>
+                    <span class="tag">STC 122</span>
+                    <span class="tag">STC 121</span>
+                    <span class="tag">STC 210</span>
+                    <span class="tag">STC 220</span>
+                    <span class="tag">BES 220</span>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <h3>⚙️ Engineering Statistics</h3>
+                <p>Specialized tutoring for engineering students covering statistical methods, probability theory, quality control, and data analysis techniques tailored for engineering applications.</p>
+            </div>
+
+            <div class="module-card">
+                <h3>📈 Economics</h3>
+                <p style="margin-bottom:10px;">From introductory principles to advanced economic theory:</p>
+                <div>
+                    <span class="tag">EKN 110</span>
+                    <span class="tag">EKN 120</span>
+                    <span class="tag">EKN 244</span>
+                    <span class="tag">EKN 234</span>
+                </div>
+            </div>
+
+            <div class="module-card">
+                <h3>🧮 Accounting</h3>
+                <p>Focused second-year accounting tutoring to build strong financial foundations.</p>
+                <div style="margin-top:10px;">
+                    <span class="tag">BAC 200 — Second Year Only</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rates" id="rates">
+        <div class="container">
+            <h2 class="section-title">Our Rates</h2>
+            <p style="color:#555; margin-bottom:20px;">Affordable tutoring with proven results. All rates are per month.</p>
+
+            <table class="rate-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Modules</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Statistics</strong></td>
+                        <td>STK & STC Modules</td>
+                        <td class="price">R450 / pm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>BES</strong></td>
+                        <td>BES 220</td>
+                        <td class="price">R450 / pm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Economics</strong></td>
+                        <td>EKN 110, 120, 244 & 234</td>
+                        <td class="price">R450 / pm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Accounting</strong></td>
+                        <td>BAC 200 (Second Year Only)</td>
+                        <td class="price">R500 / pm</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box">
+                <p><strong>Session Details:</strong> We offer face-to-face tutoring with <strong>2 sessions per week</strong> (8 sessions per month). All sessions are conducted in person for maximum learning impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <p style="color:#555; margin-bottom:25px;">Reach out to register or ask any questions about our tutoring services.</p>
+
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <h4>Email</h4>
+                    <a href="mailto:smartprepstutors35@gmail.com">smartprepstutors35@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">📞</div>
+                    <h4>Phone / WhatsApp</h4>
+                    <a href="tel:+27633589850">+27 63 358 9850</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 SmartPreps Tutors — EMS GIANT. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
